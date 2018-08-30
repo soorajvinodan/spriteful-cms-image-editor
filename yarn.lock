@@ -352,9 +352,9 @@
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.0-pre.25"
 
-"@spriteful/spriteful-drag-drop-files@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-drag-drop-files/-/spriteful-drag-drop-files-1.1.4.tgz#14525a396e275d75aaa19ad88dd56de60b6157e6"
+"@spriteful/spriteful-drag-drop-files@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-drag-drop-files/-/spriteful-drag-drop-files-1.1.5.tgz#8e262381e4d0a4ab28891fb92ce929cbbab284d2"
   dependencies:
     "@polymer/iron-icon" "^3.0.0-pre.21"
     "@polymer/paper-icon-button" "^3.0.0-pre.21"
