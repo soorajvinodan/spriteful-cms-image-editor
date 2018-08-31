@@ -64,13 +64,18 @@ class SpritefulCmsImageEditor extends SpritefulElement {
 
   static get properties() {
     return {
+
+      noSaveButton: {
+        type: Boolean,
+        value: false
+      },
       // name to save files for client app to reference 
       // ie. 'home', 'shop', 'events', etc.
       target: String,
       // used to set the path that the data is saved under
       // so the client can refer to it
       // also sets _mulitple for file selection (false for an image, true for carousel)
-      // ie. 'image' or 'carousel'
+      // ie. 'image', 'event', or 'carousel'
       type: String,
       // one file upload or multiple files
       _multiple: {
@@ -119,8 +124,20 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   }
 
 
+  static get observers() {
+    return [
+      '__publishChangesBtnDisabledChanged(_publishChangesBtnDisabled)'
+    ];
+  }
+
+
+  __computePublishBtnClass(bool) {
+    return bool ? 'no-save-button' : '';
+  }
+
+
   __computeListClass(type) {
-    return type === 'image' ? 'center-list' : '';
+    return type === 'carousel' ? '' : 'center-list';
   }
 
 
@@ -140,6 +157,11 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   }
 
 
+  __publishChangesBtnDisabledChanged(disabled) {
+    this.fire('spriteful-cms-image-editor-changes-ready', {ready: !disabled});
+  }
+
+
   async __fetchItemsFromDb() {
     try {
       const data = await services.get({coll: this._path, doc: this.target});
@@ -149,7 +171,15 @@ class SpritefulCmsImageEditor extends SpritefulElement {
         return;
       }
 
-      this._items = data.images;
+      const keys  = Object.keys(data);
+      this._items = keys.
+        reduce((accum, key) => {
+          const image   = data[key];
+          const {index} = image;
+          accum[index]  = image;
+          return accum;
+        }, []).
+        filter(obj => obj);
     }
     catch (error) {
       if (error.message) {
@@ -290,7 +320,7 @@ class SpritefulCmsImageEditor extends SpritefulElement {
         await services.deleteFile(previousPath);
       }
       if (recentPath) {
-        await services.deleteFile(previousPath);
+        await services.deleteFile(recentPath);
       }
       await services.deleteField({coll: this._path, doc: this.target, field: name});
     }
@@ -395,28 +425,13 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   }
 
 
-  async __saveChangesButtonClicked() {
+  async __publishChangesButtonClicked() {
     try {
       await this.clicked();
       await this.$.spinner.show('Saving changes...');
-      // build an object with upload data and the resorted index
-      // based on how they show up in the drag and drop list
-      const repeaterElements = this.selectAll('.sortable').
-                                 filter(el => isDisplayed(el));
-      const images = repeaterElements.map(element => {
-        const {name} = element.item;
-        return Object.assign(
-          {capture: false, orientation: 0}, 
-          element.item, 
-          this._itemsUploadData[name]
-        );
-      });
-      await services.set({coll: this._path, doc: this.target, data: {images}});
-      this.$.fileDropZone.reset();
-      this._items = [];
-      await this.__fetchItemsFromDb();
-      this._publishChangesBtnDisabled = true;
-      await this.$.spinner.hide();
+      const images = this.getImages();
+      await services.set({coll: this._path, doc: this.target, data: images, merge: false});
+      await this.reset();
       message('Your changes are now live!');
     }
     catch (error) { 
@@ -429,11 +444,39 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   async init() {
     if (!this.target || !this.type)   { return; }
     if (this._items.length) { return; }
-
     await this.$.spinner.show(`Loading ${this.type} data...`);
     this.$.container.style.opacity = '1';
     await this.__fetchItemsFromDb();
+    this._publishChangesBtnDisabled = true;
     return this.$.spinner.hide();
+  }
+
+
+  getImages() {
+    // build an array with upload data and the resorted index
+    // based on how they show up in the drag and drop list
+    const repeaterElements = this.selectAll('.sortable').
+                               filter(el => isDisplayed(el));
+    // cannot create an array, must be object for deleting by name
+    const images = repeaterElements.reduce((accum, element, index) => {
+      const {name} = element.item;
+      accum[name] = Object.assign(
+        {capture: false, orientation: 0}, 
+        element.item, 
+        this._itemsUploadData[name],
+        {index}
+      );
+      return accum;
+    }, {});
+
+    return images;
+  }
+
+
+  reset() {
+    this.$.fileDropZone.reset();
+    this._items = [];
+    return this.init();
   }
 
 }
