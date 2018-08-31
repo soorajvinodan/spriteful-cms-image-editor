@@ -364,9 +364,9 @@
     "@spriteful/spriteful-cms-icons" "^1.0.1"
     "@spriteful/spriteful-element" "^1.0.3"
 
-"@spriteful/spriteful-drag-drop-list@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-drag-drop-list/-/spriteful-drag-drop-list-1.1.4.tgz#5cfe6de0ebeae03b6a2134af772881b67749ee9d"
+"@spriteful/spriteful-drag-drop-list@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-drag-drop-list/-/spriteful-drag-drop-list-1.1.5.tgz#2bb512af5f0148a094d4108663a64ce7bf2cbe7b"
   dependencies:
     "@polymer/polymer" "^3.0.5"
     "@spriteful/template" "^1.0.0"
