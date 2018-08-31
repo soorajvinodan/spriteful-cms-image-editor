@@ -3,7 +3,7 @@
 
   :host {
     display:          block;
-    min-height:       100vh;
+    width:            100%;
     background-color: var(--app-background-color);
   }
 
@@ -90,6 +90,10 @@
     background-color: var(--app-disabled-color);
   }
 
+  .no-save-button {
+    display: none;
+  }
+
   strong {
     color:     var(--app-primary-color);
     font-size: 20px;
@@ -152,9 +156,9 @@
                                on-file-saved="__handleFileSaved">
     </spriteful-drag-drop-files>
     <paper-button id="publish-changes-btn" 
-                  class="max-width"
+                  class$="max-width [[__computePublishBtnClass(noSaveButton)]]"
                   disabled="[[_publishChangesBtnDisabled]]"
-                  on-click="__saveChangesButtonClicked" 
+                  on-click="__publishChangesButtonClicked" 
                   raised>publish changes
     </paper-button>
   </div>
