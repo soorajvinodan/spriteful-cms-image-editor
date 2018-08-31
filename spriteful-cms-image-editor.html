@@ -12,24 +12,30 @@
   }
   
   spriteful-drag-drop-list {
-    width: 100%;
+    display:        flex;
+    flex-direction: column;
+  }
+
+  .center-list {
+    align-items: center;
   }
 
   .sortable {
-    display:          flex;
+    display:          inline-flex;
     position:         relative;
     background-color: black;
-    transition: transform 0.1s ease-out;
-  }
-
-  .sortable:hover {
-    transform: scale(1.1, 1.1);
   }
 
   .list-images {
-    width:            100%;
+    width:            20vmax;
+    min-width:        128px;
     min-height:       128px;
     background-color: black;
+    transition:       transform 0.2s ease-out;
+  }
+
+  .list-images:hover {
+    transform: scale(1.1, 1.1);
   }
 
   .list-names {
@@ -113,6 +119,7 @@
 
 <div id="container">
   <spriteful-drag-drop-list id="dragList"
+                            class$="[[__computeListClass(type)]]"
                             sortable=".sortable" 
                             on-item-dropped="__handleDeleteDrop" 
                             on-sort-finish="__handleSortFinished">

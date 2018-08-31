@@ -119,6 +119,11 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   }
 
 
+  __computeListClass(type) {
+    return type === 'image' ? 'center-list' : '';
+  }
+
+
   __computeMultiple(type) {
     return type === 'carousel';
   }
