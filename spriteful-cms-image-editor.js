@@ -473,6 +473,26 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   }
 
 
+  async deleteImage(name, path) {
+    const getDeletePath = () => {
+      if (path) {
+        return path;
+      }
+      if (this._itemsUploadData[name]) {
+        return this._itemsUploadData[name].path;
+      }
+    };
+
+    const deletePath = getDeletePath();
+
+    if (deletePath) {
+      await this.$.spinner.show(`Deleting ${this.type} file...`);
+      delete this._itemsUploadData[name];
+      return services.deleteFile(deletePath);
+    }
+  }
+
+
   reset() {
     this.$.fileDropZone.reset();
     this._items = [];

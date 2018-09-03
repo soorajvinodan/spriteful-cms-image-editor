@@ -346,11 +346,11 @@
     "@spriteful/worker" "^2.0.6"
     comlinkjs "^3.0.3"
 
-"@spriteful/services@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@spriteful/services/-/services-1.1.3.tgz#b19704589e70dde85e0781ca69b89c2fc4564f24"
+"@spriteful/services@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@spriteful/services/-/services-1.1.4.tgz#6516145ca739a7fb2998629414a839a53c77fcd9"
   dependencies:
-    "@spriteful/worker" "^2.0.7"
+    "@spriteful/worker" "^2.0.8"
     comlinkjs "^3.0.3"
 
 "@spriteful/spriteful-cms-icons@^1.0.1":
@@ -453,9 +453,9 @@
     jimp "0.2.27"
     localforage "^1.7.1"
 
-"@spriteful/worker@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@spriteful/worker/-/worker-2.0.7.tgz#e4241218eb319192fcb1a1fd8a97f8acfb5efcf4"
+"@spriteful/worker@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@spriteful/worker/-/worker-2.0.8.tgz#30038326028a7e59224adde9169ce8fd9202f7a0"
   dependencies:
     "@firebase/app-types" "^0.3.2"
     comlinkjs "^3.0.3"
