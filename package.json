@@ -23,7 +23,7 @@
     "@polymer/polymer": "^3.0.5",
     "@spriteful/services": "^1.1.4",
     "@spriteful/spriteful-cms-icons": "^1.0.1",
-    "@spriteful/spriteful-drag-drop-files": "^1.1.5",
+    "@spriteful/spriteful-drag-drop-files": "^1.1.6",
     "@spriteful/spriteful-drag-drop-list": "^1.1.5",
     "@spriteful/spriteful-element": "^1.0.3",
     "@spriteful/spriteful-modal": "^1.1.0",
