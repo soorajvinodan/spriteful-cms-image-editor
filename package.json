@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/spriteful-cms-image-editor",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "easily drag and drop files to be uploaded, added, removed and reordered for client app content",
   "main": "spriteful-cms-image-editor.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "@polymer/polymer": "^3.0.5",
     "@spriteful/services": "^1.1.4",
     "@spriteful/spriteful-cms-icons": "^1.0.1",
-    "@spriteful/spriteful-drag-drop-files": "^1.1.5",
+    "@spriteful/spriteful-drag-drop-files": "^1.1.6",
     "@spriteful/spriteful-drag-drop-list": "^1.1.5",
     "@spriteful/spriteful-element": "^1.0.3",
     "@spriteful/spriteful-modal": "^1.1.0",

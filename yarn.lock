@@ -339,13 +339,6 @@
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@spriteful/lambda/-/lambda-1.2.1.tgz#b55bb800bc94a1598bc9e9a7d3a98f93c6948cb3"
 
-"@spriteful/services@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@spriteful/services/-/services-1.1.2.tgz#49892c07fade93a8338b2a6f12af51afc376cc64"
-  dependencies:
-    "@spriteful/worker" "^2.0.6"
-    comlinkjs "^3.0.3"
-
 "@spriteful/services@^1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@spriteful/services/-/services-1.1.4.tgz#6516145ca739a7fb2998629414a839a53c77fcd9"
@@ -359,16 +352,22 @@
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.0-pre.25"
 
-"@spriteful/spriteful-drag-drop-files@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-drag-drop-files/-/spriteful-drag-drop-files-1.1.5.tgz#8e262381e4d0a4ab28891fb92ce929cbbab284d2"
+"@spriteful/spriteful-cms-icons@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-cms-icons/-/spriteful-cms-icons-1.0.3.tgz#20e912e0616ad50c5a7bcccb98f0fe1fa84fa495"
+  dependencies:
+    "@polymer/iron-iconset-svg" "^3.0.0-pre.25"
+
+"@spriteful/spriteful-drag-drop-files@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@spriteful/spriteful-drag-drop-files/-/spriteful-drag-drop-files-1.1.6.tgz#fce6cc7ba4df02e8b058a4ca6a14c6a850c65504"
   dependencies:
     "@polymer/iron-icon" "^3.0.0-pre.21"
     "@polymer/paper-icon-button" "^3.0.0-pre.21"
     "@polymer/paper-progress" "^3.0.0-pre.23"
     "@polymer/polymer" "^3.0.5"
-    "@spriteful/services" "^1.1.2"
-    "@spriteful/spriteful-cms-icons" "^1.0.1"
+    "@spriteful/services" "^1.1.4"
+    "@spriteful/spriteful-cms-icons" "^1.0.3"
     "@spriteful/spriteful-element" "^1.0.3"
 
 "@spriteful/spriteful-drag-drop-list@^1.1.5":
@@ -442,16 +441,6 @@
   resolved "https://registry.yarnpkg.com/@spriteful/utils/-/utils-1.1.2.tgz#6e3f338bb5403a1aa7dfab02417afbd974c71eda"
   dependencies:
     "@spriteful/lambda" "^1.2.1"
-
-"@spriteful/worker@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@spriteful/worker/-/worker-2.0.6.tgz#5e1dc465db02318c71f5f9804a9496c01785f624"
-  dependencies:
-    "@firebase/app-types" "^0.3.2"
-    comlinkjs "^3.0.3"
-    firebase "^5.4.1"
-    jimp "0.2.27"
-    localforage "^1.7.1"
 
 "@spriteful/worker@^2.0.8":
   version "2.0.8"
@@ -728,7 +717,7 @@ file-type@^3.1.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-3.9.0.tgz#257a078384d1db8087bc449d107d52a52672b9e9"
 
-firebase@^5.4.1, firebase@^5.4.2:
+firebase@^5.4.2:
   version "5.4.2"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-5.4.2.tgz#48d6da1be44539efcb2aa4875ef9155dd0700ae4"
   dependencies:
